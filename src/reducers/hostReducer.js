@@ -11,7 +11,7 @@ export default (state = [], action) => {
 					}
 				}
 			}
-			return newHosts
+			return [...state, ...newHosts]
 
 		default:
 			return state
