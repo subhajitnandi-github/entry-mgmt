@@ -29,7 +29,7 @@ class CheckIn extends Component {
 					</div>
 				</div>
 				<div
-					class="jumbotron jumbotron-fluid my-0"
+					className="jumbotron jumbotron-fluid my-0"
 					style={{ backgroundImage: `url(${bg})`, height: '35vh' }}
 				></div>
 			</Fragment>

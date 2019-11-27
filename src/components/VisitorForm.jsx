@@ -107,7 +107,7 @@ class VisitorForm extends Component {
 								</div>
 								<button
 									type="submit"
-									className="btn btn-outline-dark btn-lg mt-5 px-5 responsive-width"
+									className="btn btn-outline-dark btn-lg my-5 px-5 responsive-width"
 								>
 									Check In
 								</button>
