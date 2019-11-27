@@ -3,15 +3,27 @@ import { FETCH_HOSTS } from '../actions/types'
 export default (state = [], action) => {
 	switch (action.type) {
 		case FETCH_HOSTS:
-			let newHosts = []
-			for (let host of state) {
-				for (let fetchedHost of action.payload) {
-					if (host._id !== fetchedHost._id) {
-						newHosts.push(fetchedHost)
+			let hosts = [...state, ...action.payload]
+
+			let hostIds = []
+
+			for (let host of hosts) {
+				hostIds.push(host._id)
+			}
+
+			let uniqueHostIds = [...new Set(hostIds)]
+
+			let uniqueHosts = []
+			for (let id of uniqueHostIds) {
+				for (let host of hosts) {
+					if (id === host._id) {
+						uniqueHosts.push(host)
+						break
 					}
 				}
 			}
-			return [...state, ...newHosts]
+
+			return uniqueHosts
 
 		default:
 			return state
