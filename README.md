@@ -68,7 +68,7 @@ Your server should be up and running on `localhost:8080`
 
 ## Approach
 
-![homescreen](/imgs/Screenshot (22).png)
+![homescreen](https://github.com/Kristency/entry-mgmt/blob/master/imgs/Screenshot%20(22).png)
 
 
 
