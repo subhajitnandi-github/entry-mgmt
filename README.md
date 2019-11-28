@@ -68,7 +68,7 @@ Your server should be up and running on `localhost:8080`
 
 ## Approach
 
-![homescreen](D:\JS Programs\entry-management\client\imgs\Screenshot (22).png)
+![homescreen](/imgs/Screenshot (22).png)
 
 
 
