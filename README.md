@@ -104,6 +104,10 @@ After the meeting is over, the visitor can check-out from his dashboard which wi
 
 
 
+![session details](D:\JS Programs\entry-management\client\imgs\session_details.jpg)
+
+
+
 ## Tech Stack
 
 ### API
