@@ -104,7 +104,7 @@ After the meeting is over, the visitor can check-out from his dashboard which wi
 
 
 
-![session details](D:\JS Programs\entry-management\client\imgs\session_details.jpg)
+![session details](https://github.com/Kristency/entry-mgmt/blob/master/imgs/session_details.jpg)
 
 
 
