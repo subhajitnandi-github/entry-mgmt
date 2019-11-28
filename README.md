@@ -1,68 +1,169 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Entry Management Software - Innovaccer SDE Intern 2020 Assignment
 
-## Available Scripts
+A simple visitor management software to automate visitor management process and manage your visitors efficiently.
 
-In the project directory, you can run:
+#### :computer: Currently deployed at [entrymgmt.herokuapp.com]( https://entrymgmt.herokuapp.com/ )
 
-### `yarn start`
+> :warning: Please note the SMS service is limited as it uses trial **Nexmo** account. So it works from 9 am to 9 pm in India and you may not get any SMS as a host.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+* :monorail: [Run Locally](#user-content-run-locally)​
+* :grey_question: [Approach](#user-content-approach)
+* :books: [Tech Stack](#user-content-tech-stack)
+  * :electric_plug: ​[API](#user-content-api)
+  * :file_folder: [Database](#user-content-database)​
+  * :nail_care: [Front-end](#user-content-front-end)​
+    * [State Management](#user-content-state-management)
+    * [Responsive Styling](#user-content-responsive-styling)
+  * :rocket: ​[Deployment](#user-content-deployment)
+* :star: [Miscellaneous](#user-content-miscellaneous)
 
-### `yarn test`
+---
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Run Locally
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+To run the web app locally, go to any directory, open terminal and run the following commands:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+$ git clone https://github.com/Kristency/entry-mgmt.git
+$ cd entry-mgmt
+$ npm install
+$ npm start
+```
 
-### `yarn eject`
+Your app should be up and running on `localhost:3000`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To run the API server,  go to any directory, open terminal and run the following commands:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+$ git clone https://github.com/Kristency/entry-mgmt-api.git
+$ cd entry-mgmt-api
+$ npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Create a **.env** file and fill the following key-value pairs.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+DATABASEURL = mongodb://localhost:27017/<your_database_name>
+NODEMAILER_FROM_ADDRESS = <email_address you used to register on Nodemailer>
+NODEMAILER_PASSWORD = <password you used to register on Nodemailer>
+NODEMAILER_MAIL_SERVICE = <gmail/yahoo/hotmail>
+NEXMO_API_KEY = <api_key generated on registering with Nexmo>
+NEXMO_API_SECRET = <api_secret generated on registering with Nexmo>
+NEXMO_FROM_NUMBER = <phone_number you registered with Nexmo>
+```
 
-## Learn More
+In the same terminal, run:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+$ npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Your server should be up and running on `localhost:8080`
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
+## Approach
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+![homescreen](D:\JS Programs\entry-management\client\imgs\Screenshot (22).png)
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
+I have created this app assuming that the hosts will first have to register themselves in this app. Once registered, if a host again logs in, then he will be redirected to a dashboard where he can see a list of all of his pending visitors.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+
+![host registration](D:\JS Programs\entry-management\client\imgs\Screenshot (23)_LI.jpg)
+
+
+
+![host dashboard](D:\JS Programs\entry-management\client\imgs\Screenshot (26)_LI.jpg)
+
+
+
+If a visitor checks in, he will be asked to fill his details and choose a host from the list of available hosts whom he want to meet. If the visitor is a new one, he will be registered in the database and a session will be created with the check-in time, visitor details, and the host selected. Simultaneously, an email and a SMS will be sent to the selected host informing him about the visitor.
+
+
+
+![visitor registration](D:\JS Programs\entry-management\client\imgs\Screenshot (24)_LI.jpg)
+
+
+
+![visitor dashboard](D:\JS Programs\entry-management\client\imgs\Screenshot (25).png)
+
+
+
+![host email](D:\JS Programs\entry-management\client\imgs\Annotation 2019-11-28 171700.png)
+
+
+
+After the meeting is over, the visitor can check-out from his dashboard which will trigger a patch request to the ongoing session in the database which will update the check-out time of the session and send an email about the session details to the visitor.
+
+
+
+## Tech Stack
+
+### API
+
+The [API]( https://github.com/Kristency/entry-mgmt-api ) for this app is built with **Node.js**. Its a light-weight server built using Express framework and handles CRUD operations of the visitors/hosts and also provides email( [Nodemailer]( https://nodemailer.com/about/ ) ) and SMS( [Nexmo]( https://developer.nexmo.com/messaging/sms/code-snippets/send-an-sms ) ) services.
+
+All the private keys and database URLs are secured using environment variables. Again the [dotenv](https://www.npmjs.com/package/dotenv) NPM package is a great tool to deal with that.
+
+
+
+### Database
+
+The popular NoSQL **MongoDB** is being used hosted on Mongo Atlas. The database contains three models namely **Visitor**, **Host** and **Session**. Host is associated with Visitor model by reference through the **pendingVisitors** key. [Mongoose](https://mongoosejs.com/) helped me design a consistent schema for them.
+
+
+
+![host model](D:\JS Programs\entry-management\client\imgs\Screenshot (27).png)
+
+
+
+![session model](D:\JS Programs\entry-management\client\imgs\Screenshot (28).png)
+
+
+
+![visitor model](D:\JS Programs\entry-management\client\imgs\Screenshot (29).png)
+
+
+
+### Front-end
+
+This project is built with **React** and bootstrapped by [Create React App](https://github.com/facebook/create-react-app). I have used class based components.
+
+#### State Management
+
+For global state management, **Redux** is being used along with **redux-thunk** to deal with asynchronous action creators while **axios** handles REST API calls. For monitoring and debugging the state, [Redux Dev Tools](https://github.com/zalmoxisus/redux-devtools-extension) works great.
+
+
+
+![initial state](D:\JS Programs\entry-management\client\imgs\Screenshot (30).png)
+
+
+
+![visitor check-in state](D:\JS Programs\entry-management\client\imgs\Screenshot (31).png)
+
+
+
+#### Responsive Styling
+
+Using **Bootstrap 4** grid system and spacing utilities to make the application look good on any device.
+
+
 
 ### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Deployed on **heroku** using the [mars/create-react-app](https://github.com/mars/create-react-app-buildpack) buildpack. It automatically deploys the production build and installs necessary dependencies for optimum performance and security.
 
-### `yarn build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+Keep coding ! :v:
+
+Subhajit Nandi
+
+nandisubhajit666@gmail.com
