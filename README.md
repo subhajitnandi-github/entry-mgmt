@@ -76,11 +76,11 @@ I have created this app assuming that the hosts will first have to register them
 
 
 
-![host registration](D:\JS Programs\entry-management\client\imgs\Screenshot (23)_LI.jpg)
+![host registration](https://github.com/Kristency/entry-mgmt/blob/master/imgs/Screenshot%20(23)_LI.jpg)
 
 
 
-![host dashboard](D:\JS Programs\entry-management\client\imgs\Screenshot (26)_LI.jpg)
+![host dashboard](https://github.com/Kristency/entry-mgmt/blob/master/imgs/Screenshot%20(26)_LI.jpg)
 
 
 
@@ -88,15 +88,15 @@ If a visitor checks in, he will be asked to fill his details and choose a host f
 
 
 
-![visitor registration](D:\JS Programs\entry-management\client\imgs\Screenshot (24)_LI.jpg)
+![visitor registration](https://github.com/Kristency/entry-mgmt/blob/master/imgs/Screenshot%20(24)_LI.jpg)
 
 
 
-![visitor dashboard](D:\JS Programs\entry-management\client\imgs\Screenshot (25).png)
+![visitor dashboard](https://github.com/Kristency/entry-mgmt/blob/master/imgs/Screenshot%20(25).png)
 
 
 
-![host email](D:\JS Programs\entry-management\client\imgs\Annotation 2019-11-28 171700.png)
+![host email](https://github.com/Kristency/entry-mgmt/blob/master/imgs/Annotation%202019-11-28%20171700.png)
 
 
 
@@ -120,15 +120,15 @@ The popular NoSQL **MongoDB** is being used hosted on Mongo Atlas. The database 
 
 
 
-![host model](D:\JS Programs\entry-management\client\imgs\Screenshot (27).png)
+![host model](https://github.com/Kristency/entry-mgmt/blob/master/imgs/Screenshot%20(27).png)
 
 
 
-![session model](D:\JS Programs\entry-management\client\imgs\Screenshot (28).png)
+![session model](https://github.com/Kristency/entry-mgmt/blob/master/imgs/Screenshot%20(28).png)
 
 
 
-![visitor model](D:\JS Programs\entry-management\client\imgs\Screenshot (29).png)
+![visitor model](https://github.com/Kristency/entry-mgmt/blob/master/imgs/Screenshot%20(29).png)
 
 
 
@@ -142,11 +142,11 @@ For global state management, **Redux** is being used along with **redux-thunk** 
 
 
 
-![initial state](D:\JS Programs\entry-management\client\imgs\Screenshot (30).png)
+![initial state](https://github.com/Kristency/entry-mgmt/blob/master/imgs/Screenshot%20(30).png)
 
 
 
-![visitor check-in state](D:\JS Programs\entry-management\client\imgs\Screenshot (31).png)
+![visitor check-in state](https://github.com/Kristency/entry-mgmt/blob/master/imgs/Screenshot%20(31).png)
 
 
 
