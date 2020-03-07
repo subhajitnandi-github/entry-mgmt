@@ -58,6 +58,7 @@ class VisitorForm extends Component {
 					<option value="">Select</option>
 					{this.props.hosts.map(this.renderSelectOptions)}
 				</select>
+				{this.renderError(meta)}
 			</div>
 		)
 	}
@@ -132,7 +133,7 @@ const validate = formValues => {
 	if (!formValues.phone) {
 		errors.phone = 'Please enter a valid phone number.'
 	}
-	if (formValues.hostId === '') {
+	if (!formValues.hostId) {
 		errors.hostId = 'Please select a host.'
 	}
 
